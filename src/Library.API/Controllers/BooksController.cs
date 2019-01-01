@@ -239,7 +239,7 @@ namespace Library.API.Controllers
 
             patchDoc.ApplyTo(bookToPatch, ModelState);
 
-            // patchDoc.ApplyTo(bookToPatch);
+           // patchDoc.ApplyTo(bookToPatch);
 
             if (bookToPatch.Description == bookToPatch.Title)
             {
