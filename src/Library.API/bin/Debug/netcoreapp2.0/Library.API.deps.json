@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "20cd0d2ec76160f3889a34c2b4411c995198867c"
+    "signature": "de1f63eecf4fa22e2aaa8266e98677880f66195c"
   },
   "compilationOptions": {
     "defines": [
@@ -26,7 +26,9 @@
         "dependencies": {
           "AutoMapper": "5.2.0",
           "Microsoft.AspNetCore.All": "2.0.0",
-          "Microsoft.NETCore.App": "2.0.0"
+          "Microsoft.NETCore.App": "2.0.0",
+          "NLog.Web.AspNetCore": "4.5.0-beta04",
+          "System.Linq.Dynamic.Core": "1.0.6.9"
         },
         "runtime": {
           "Library.API.dll": {}
@@ -2856,6 +2858,59 @@
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
         }
       },
+      "NLog/4.5.0-beta07": {
+        "dependencies": {
+          "System.Security.Principal.Windows": "4.4.0",
+          "System.ServiceModel.Duplex": "4.4.0",
+          "System.ServiceModel.NetTcp": "4.4.0",
+          "System.ServiceModel.Primitives": "4.4.0",
+          "System.ServiceModel.Security": "4.4.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NLog.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.5.0.6464"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/NLog.dll": {}
+        }
+      },
+      "NLog.Extensions.Logging/1.0.0-rtm-rc2": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "2.0.0",
+          "NLog": "4.5.0-beta07",
+          "System.AppContext": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NLog.Extensions.Logging.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/NLog.Extensions.Logging.dll": {}
+        }
+      },
+      "NLog.Web.AspNetCore/4.5.0-beta04": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Hosting.Abstractions": "2.0.0",
+          "Microsoft.AspNetCore.Http": "2.0.0",
+          "Microsoft.AspNetCore.Http.Extensions": "2.0.0",
+          "Microsoft.AspNetCore.Routing.Abstractions": "2.0.0",
+          "NLog.Extensions.Logging": "1.0.0-rtm-rc2",
+          "System.ValueTuple": "4.4.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NLog.Web.AspNetCore.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.5.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/NLog.Web.AspNetCore.dll": {}
+        }
+      },
       "Remotion.Linq/2.1.1": {
         "dependencies": {
           "System.Collections": "4.3.0",
@@ -3342,6 +3397,29 @@
           "System.Runtime": "4.3.0"
         }
       },
+      "System.Diagnostics.TraceSource/4.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "2.0.0",
+          "System.Collections": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Threading": "4.3.0",
+          "runtime.native.System": "4.3.0"
+        },
+        "runtimeTargets": {
+          "runtime/unix/lib/_._": {
+            "rid": "unix",
+            "assetType": "runtime"
+          },
+          "runtime/win/lib/_._": {
+            "rid": "win",
+            "assetType": "runtime"
+          }
+        }
+      },
       "System.Diagnostics.Tracing/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.0.0",
@@ -3494,6 +3572,31 @@
           "System.Runtime.Extensions": "4.3.0"
         }
       },
+      "System.Linq.Dynamic.Core/1.0.6.9": {
+        "dependencies": {
+          "System.Collections.Concurrent": "4.3.0",
+          "System.ComponentModel.TypeConverter": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Diagnostics.TraceSource": "4.0.0",
+          "System.Dynamic.Runtime": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.Linq.Expressions": "4.3.0",
+          "System.Linq.Queryable": "4.0.1",
+          "System.Reflection.Emit": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Threading": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.Linq.Dynamic.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.3/System.Linq.Dynamic.Core.dll": {}
+        }
+      },
       "System.Linq.Expressions/4.3.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
@@ -3564,6 +3667,22 @@
           "runtime/win/lib/_._": {
             "rid": "win",
             "assetType": "runtime"
+          }
+        }
+      },
+      "System.Net.Http.WinHttpHandler/4.4.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.Net.Http.WinHttpHandler.dll": {
+            "assemblyVersion": "4.0.2.0",
+            "fileVersion": "4.6.25519.3"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/netstandard2.0/System.Net.Http.WinHttpHandler.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "4.0.2.0",
+            "fileVersion": "4.6.25519.3"
           }
         }
       },
@@ -3693,6 +3812,28 @@
           "System.Xml.XmlSerializer": "4.0.11"
         }
       },
+      "System.Private.ServiceModel/4.4.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "2.0.0",
+          "System.Net.Http.WinHttpHandler": "4.4.0",
+          "System.Reflection.DispatchProxy": "4.4.0",
+          "System.Security.Principal.Windows": "4.4.0"
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netstandard2.0/System.Private.ServiceModel.dll": {
+            "rid": "unix",
+            "assetType": "runtime",
+            "assemblyVersion": "4.1.2.0",
+            "fileVersion": "4.6.25525.6"
+          },
+          "runtimes/win7/lib/netstandard2.0/System.Private.ServiceModel.dll": {
+            "rid": "win7",
+            "assetType": "runtime",
+            "assemblyVersion": "4.1.2.0",
+            "fileVersion": "4.6.25525.6"
+          }
+        }
+      },
       "System.Reflection/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.0.0",
@@ -3702,6 +3843,7 @@
           "System.Runtime": "4.3.0"
         }
       },
+      "System.Reflection.DispatchProxy/4.4.0": {},
       "System.Reflection.Emit/4.3.0": {
         "dependencies": {
           "System.IO": "4.3.0",
@@ -4094,6 +4236,65 @@
         },
         "compile": {
           "ref/netstandard2.0/System.Security.Principal.Windows.dll": {}
+        }
+      },
+      "System.ServiceModel.Duplex/4.4.0": {
+        "dependencies": {
+          "System.Private.ServiceModel": "4.4.0",
+          "System.ServiceModel.Primitives": "4.4.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.ServiceModel.Duplex.dll": {
+            "assemblyVersion": "4.1.0.0",
+            "fileVersion": "4.6.25525.6"
+          }
+        },
+        "compile": {
+          "ref/netstandard2.0/System.ServiceModel.Duplex.dll": {}
+        }
+      },
+      "System.ServiceModel.NetTcp/4.4.0": {
+        "dependencies": {
+          "System.Private.ServiceModel": "4.4.0",
+          "System.ServiceModel.Primitives": "4.4.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.ServiceModel.NetTcp.dll": {
+            "assemblyVersion": "4.1.2.0",
+            "fileVersion": "4.6.25525.6"
+          }
+        },
+        "compile": {
+          "ref/netstandard2.0/System.ServiceModel.NetTcp.dll": {}
+        }
+      },
+      "System.ServiceModel.Primitives/4.4.0": {
+        "dependencies": {
+          "System.Private.ServiceModel": "4.4.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.ServiceModel.Primitives.dll": {
+            "assemblyVersion": "4.2.0.0",
+            "fileVersion": "4.6.25525.6"
+          }
+        },
+        "compile": {
+          "ref/netstandard2.0/System.ServiceModel.Primitives.dll": {}
+        }
+      },
+      "System.ServiceModel.Security/4.4.0": {
+        "dependencies": {
+          "System.Private.ServiceModel": "4.4.0",
+          "System.ServiceModel.Primitives": "4.4.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.ServiceModel.Security.dll": {
+            "assemblyVersion": "4.0.3.0",
+            "fileVersion": "4.6.25525.6"
+          }
+        },
+        "compile": {
+          "ref/netstandard2.0/System.ServiceModel.Security.dll": {}
         }
       },
       "System.Spatial/5.8.2": {
@@ -5683,6 +5884,27 @@
       "path": "newtonsoft.json.bson/1.0.1",
       "hashPath": "newtonsoft.json.bson.1.0.1.nupkg.sha512"
     },
+    "NLog/4.5.0-beta07": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-x4ChK7SAIMvJF2IkOJFiDYryFCT4MaccHaP5YV7m/+QGM32g41GypzB6ht2YkH6nfqwTDDKVKu7QzrTDXgi1JQ==",
+      "path": "nlog/4.5.0-beta07",
+      "hashPath": "nlog.4.5.0-beta07.nupkg.sha512"
+    },
+    "NLog.Extensions.Logging/1.0.0-rtm-rc2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cL9hxGEAIKoMvcPqde6n+Ldt+g8lUB0ubJm0KJl2zA+GPehDPeu6pqjvRTKyWZb8NR4Ng5luEnJTiLq8ZDGSjg==",
+      "path": "nlog.extensions.logging/1.0.0-rtm-rc2",
+      "hashPath": "nlog.extensions.logging.1.0.0-rtm-rc2.nupkg.sha512"
+    },
+    "NLog.Web.AspNetCore/4.5.0-beta04": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VzgxxCoRZvlQXoijSZcfBxpw+RUTlk1v7I9TN6Gfp+VWvmAiGtkN4K9I7wPeXubvk3c18oLXGubg+lohnPKt1w==",
+      "path": "nlog.web.aspnetcore/4.5.0-beta04",
+      "hashPath": "nlog.web.aspnetcore.4.5.0-beta04.nupkg.sha512"
+    },
     "Remotion.Linq/2.1.1": {
       "type": "package",
       "serviceable": true,
@@ -6019,6 +6241,13 @@
       "path": "system.diagnostics.tools/4.3.0",
       "hashPath": "system.diagnostics.tools.4.3.0.nupkg.sha512"
     },
+    "System.Diagnostics.TraceSource/4.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UHnh7AJNmoL9TT8vLPO9vPF5vu95C0feUTO9LrAGBnkoLHTpo1SjfyIvhwTpfPD57NTi3vgFlbJMEzHwt2+a2Q==",
+      "path": "system.diagnostics.tracesource/4.0.0",
+      "hashPath": "system.diagnostics.tracesource.4.0.0.nupkg.sha512"
+    },
     "System.Diagnostics.Tracing/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -6103,6 +6332,13 @@
       "path": "system.linq/4.3.0",
       "hashPath": "system.linq.4.3.0.nupkg.sha512"
     },
+    "System.Linq.Dynamic.Core/1.0.6.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7P9op+a3Y5QiWEwUZXWda9sDywgROj9U5ZBwTJF8ig/MR9GgJjy3lGrhnxlOho756UdZ0DIcNwyAaj3C8FKsaQ==",
+      "path": "system.linq.dynamic.core/1.0.6.9",
+      "hashPath": "system.linq.dynamic.core.1.0.6.9.nupkg.sha512"
+    },
     "System.Linq.Expressions/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -6123,6 +6359,13 @@
       "sha512": "sha512-7W1PmPSoT5osVT2Tx9pxL87UveBhKqywSOvl7IVhSexDUBhELw9pcvNb99C3varVuSiyG5d71kqW1cJkp8JzRw==",
       "path": "system.net.http/4.3.0",
       "hashPath": "system.net.http.4.3.0.nupkg.sha512"
+    },
+    "System.Net.Http.WinHttpHandler/4.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YqwobZ4S2NccFweRdD53iBQL+tI5BtplnjpLWE5YEN5f03NQzSjSUKjbAuvSeW9W95SM73ua+KqvdqCjlK8Ctw==",
+      "path": "system.net.http.winhttphandler/4.4.0",
+      "hashPath": "system.net.http.winhttphandler.4.4.0.nupkg.sha512"
     },
     "System.Net.NameResolution/4.3.0": {
       "type": "package",
@@ -6173,12 +6416,26 @@
       "path": "system.private.datacontractserialization/4.1.1",
       "hashPath": "system.private.datacontractserialization.4.1.1.nupkg.sha512"
     },
+    "System.Private.ServiceModel/4.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-k0c8LdxCWUzUfmSs0lgS3W8hor2c0LwZT4vkQ6xQ3BeFnMAJO+XAkEcn7bTKdSDt4j53tPFNTqNwsb2xtWVt5g==",
+      "path": "system.private.servicemodel/4.4.0",
+      "hashPath": "system.private.servicemodel.4.4.0.nupkg.sha512"
+    },
     "System.Reflection/4.3.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-mCcMm8YqEBh6EWiosu1ZBVSTQ+NEjuvoIHCxBXzSU8RI5eN6KMfmg6HccKazaHEI2WRBrBIFh3dwPaxDoRCpZQ==",
       "path": "system.reflection/4.3.0",
       "hashPath": "system.reflection.4.3.0.nupkg.sha512"
+    },
+    "System.Reflection.DispatchProxy/4.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OMBZ2YO0MOoi8yarOmXQVLso5RW9S62liNXJ0UjANonTBA4n/H1hn8A90BRNXdwbwIlPKIjis2G2wreukTRSWA==",
+      "path": "system.reflection.dispatchproxy/4.4.0",
+      "hashPath": "system.reflection.dispatchproxy.4.4.0.nupkg.sha512"
     },
     "System.Reflection.Emit/4.3.0": {
       "type": "package",
@@ -6389,6 +6646,34 @@
       "sha512": "sha512-fPHaQCIf3f9QquP1IINZuf5YHdAIU9DCQUIyfavK+s7Qu0o6Fbpb4xreYI3NuU85HzbreJKmF2RPnR6Z5dRcfQ==",
       "path": "system.security.principal.windows/4.4.0",
       "hashPath": "system.security.principal.windows.4.4.0.nupkg.sha512"
+    },
+    "System.ServiceModel.Duplex/4.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sCwxTcykS5Qv/rdBWr4H5rNqtqGUyefrAUEqQPMaxt3LmKwBxukyDzrVXzZW/fjo0PXjx0yus77Ivor2tKlmJQ==",
+      "path": "system.servicemodel.duplex/4.4.0",
+      "hashPath": "system.servicemodel.duplex.4.4.0.nupkg.sha512"
+    },
+    "System.ServiceModel.NetTcp/4.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+IxogIKvBRR7l/na1jkGbnYgZpBGgztnX6YfNkY5RdUFw+SZ6bbcCBHqNCXA0ckQjpcKr2e/4HFz/wzIcIayqg==",
+      "path": "system.servicemodel.nettcp/4.4.0",
+      "hashPath": "system.servicemodel.nettcp.4.4.0.nupkg.sha512"
+    },
+    "System.ServiceModel.Primitives/4.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oyUXqZjNKwLgofomcCt+E3Z2Ly7FAfK7rFYYjcdbZyvyHbXLrZjOf7ldo6iy7CkdSb0k/lnsGA/EkAehsZjh0A==",
+      "path": "system.servicemodel.primitives/4.4.0",
+      "hashPath": "system.servicemodel.primitives.4.4.0.nupkg.sha512"
+    },
+    "System.ServiceModel.Security/4.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qefN+YSzw75BB2dmJLiv9dQL63u8QxNMdHEbwI8HXVggf3Iseg8329XrvzCFC9h+58KWucLs7mShZxWeBIzflQ==",
+      "path": "system.servicemodel.security/4.4.0",
+      "hashPath": "system.servicemodel.security.4.4.0.nupkg.sha512"
     },
     "System.Spatial/5.8.2": {
       "type": "package",

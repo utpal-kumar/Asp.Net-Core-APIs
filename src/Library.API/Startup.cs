@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Newtonsoft.Json.Serialization;
+using System.Linq;
 
 namespace Library.API
 {
@@ -104,11 +105,13 @@ namespace Library.API
                     .ForMember(dest => dest.Name, opt => opt.MapFrom(src =>
                     $"{src.FirstName} {src.LastName}"))
                     .ForMember(dest => dest.Age, opt => opt.MapFrom(src =>
-                    src.DateOfBirth.GetCurrentAge()));
+                    src.DateOfBirth.GetCurrentAge(src.DateOfDeath)));
 
                 cfg.CreateMap<Entities.Book, Models.BookDto>();
 
                 cfg.CreateMap<Models.AuthorForCreationDto, Entities.Author>();
+
+                cfg.CreateMap<Models.AuthorForCreationWithDateOfDeathDto, Entities.Author>();
 
                 cfg.CreateMap<Models.BookForCreationDto, Entities.Book>();
 

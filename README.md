@@ -34,3 +34,5 @@ Perfect model mapping and validations are done by asp.net core provided return t
 This sample shows how to use dummy data for entity framework.
 
 The BooksController is a sample that shows how to add, update and delete single child and collection of child objects.
+
+Added Hypermedia as the Engine of Application State (HATEOAS).

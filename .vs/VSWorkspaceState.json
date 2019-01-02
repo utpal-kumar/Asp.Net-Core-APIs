@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\Library.API",
+    "\\src\\Library.API\\Controllers"
+  ],
+  "SelectedNode": "\\src\\Library.API\\Controllers\\AuthorsController.cs",
+  "PreviewInSolutionExplorer": false
+}
