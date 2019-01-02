@@ -20,7 +20,7 @@ namespace Library.API
 {
     public class Startup
     {
-        public static IConfiguration Configuration;
+		public static IConfiguration Configuration;
 
         public Startup(IConfiguration configuration)
         {
@@ -60,14 +60,18 @@ namespace Library.API
                 .ActionContext;
                 return new UrlHelper(actionContext);
             });
-            
+
+            services.AddTransient<IPropertyMappingService, PropertyMappingService>();
+
+            services.AddTransient<ITypeHelperService, TypeHelperService>();
+
             // services.AddScoped<IUrlHelper, UrlHelper>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, 
             ILoggerFactory loggerFactory, LibraryContext libraryContext)
-        {   
+        {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

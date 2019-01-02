@@ -10,10 +10,13 @@ namespace Library.API.Services
     public class LibraryRepository : ILibraryRepository
     {
         private LibraryContext _context;
+        private IPropertyMappingService _propertyMappingService;
 
-        public LibraryRepository(LibraryContext context)
+        public LibraryRepository(LibraryContext context, 
+            IPropertyMappingService propertyMappingService)
         {
             _context = context;
+            _propertyMappingService = propertyMappingService;
         }
 
         public void AddAuthor(Author author)
@@ -74,10 +77,9 @@ namespace Library.API.Services
             //    .ThenBy(a => a.LastName).AsQueryable();
 
             var collectionBeforePaging =
-                _context.Authors
-                .OrderBy(a => a.FirstName)
-                .ThenBy(a => a.LastName)
-                .AsQueryable();
+                _context.Authors                
+                .ApplySort(authorsResourceParameters.OrderBy,
+                _propertyMappingService.GetPropertyMapping<AuthorDto, Author>());
 
             if (!string.IsNullOrEmpty(authorsResourceParameters.Genre))
             {
@@ -87,7 +89,7 @@ namespace Library.API.Services
                 collectionBeforePaging = collectionBeforePaging
                     .Where(a => a.Genre.ToLowerInvariant() == genreForWhereClause);
             }
-
+            
             if (!string.IsNullOrEmpty(authorsResourceParameters.SearchQuery))
             {
                 // trim & ignore casing
