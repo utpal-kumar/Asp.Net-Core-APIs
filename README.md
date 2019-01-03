@@ -40,8 +40,51 @@ Example of handling OPTIONS request, that returns the allowed options by the API
         return Ok();
     }
 
+
+In asp.net core RateLimit and Throatling can be done by the following configurations in the middleware:
+Here the limit for each client from a IP address is set to maximum 10 per each 5 minutes.
+
+
+    services.AddMemoryCache();
+
+    services.Configure<IpRateLimitOptions>((options) =>
+    {
+        options.GeneralRules = new System.Collections.Generic.List<RateLimitRule>()
+        {
+            new RateLimitRule()
+            {
+                Endpoint = "*",
+                Limit = 10,
+                Period = "5m"
+            } 
+        };
+    });
+
+    services.AddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounterStore>();
+    services.AddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
+
 This sample shows how to use dummy data for entity framework.
 
 The BooksController is a sample that shows how to add, update and delete single child and collection of child objects.
 
-Added Hypermedia as the Engine of Application State (HATEOAS).
+
+In ASP.NET core any kind of internal server error can be handled globally with following configurations:
+
+        app.UseExceptionHandler(appBuilder =>
+        {
+            appBuilder.Run(async context =>
+            {
+                var exceptionHandlerFeature = context.Features.Get<IExceptionHandlerFeature>();
+                if (exceptionHandlerFeature != null)
+                {
+                    var logger = loggerFactory.CreateLogger("Global exception logger");
+                    logger.LogError(500,
+                        exceptionHandlerFeature.Error,
+                        exceptionHandlerFeature.Error.Message);
+                }
+
+                context.Response.StatusCode = 500;
+                await context.Response.WriteAsync("An unexpected fault happened. Try again later.");
+
+            });                      
+        });
